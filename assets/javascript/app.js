@@ -2,7 +2,8 @@
 // Trivia Game
 // Timer homework
 
-//Game objects
+// GLOBALS
+// Game objects
 let trivia = [
     {
         "question":   "Which hit song featured the following lyric: 'The love we share seems to go nowhere and I've lost my light.'",
@@ -21,30 +22,48 @@ let trivia = [
         "answers":    ["Hungry Like the Wolf", "b", "c", "d"]
     },
     {
-        "question":   "How",
-        "answers":    ["a", "b", "c", "d"]
-    }
+        "question":   "Which Pet Shop Boys' song was about the lead singer's Catholic upbringing?",
+        "answers":    ["a", "b", "c", "It's a Sin"]
+    },
     {
-        "question":   "How",
-        "answers":    ["a", "b", "c", "d"]
-    }
+        "question":   "Need You Tonight was released by which band?",
+        "answers":    ["a", "INXS", "c", "d"]
+    },
     {
-        "question":   "How",
-        "answers":    ["a", "b", "c", "d"]
-    }
+        "question":   "Which movie featured the song, 'Danger Zone'?",
+        "answers":    ["a", "Top Gun", "c", "d"]
+    },
     {
-        "question":   "How",
-        "answers":    ["a", "b", "c", "d"]
-    }
+        "question":   "Which movie featured the song, 'The Heat is On'?",
+        "answers":    ["a", "b", "Beverly Hills Cop", "d"]
+    },
     {
-        "question":   "How",
-        "answers":    ["a", "b", "c", "d"]
+        "question":   "Which Frankie Goes to Hollywood song was banned in the UK because of it's lyrics?",
+        "answers":    ["a", "b", "c", "Relax"]
     }
-]
+];
+// Variables
+let gameOver = false;
+let correct = 0;
+let incorrect = 0;
+
 //Initialize the game
 init();
 
 function init() {
 
-
+let timeRemaining = $('<div class="time-rem"><h1>"Time Remaining: " + time + " Seconds"</h1></div>');
+let currentQuestion = getCurrentQuestion();
+let question = $('<div class="question"><h1>currentQuestion</h1></div>');
 }
+
+function getCurrentQuestion() {
+
+    let index = randomNumber(trivia);
+    let q = ;////////////////////////
+
+    return q;
+}
+
+//Returns a random index for the trivia object array
+function randomNumber(arr) { return Math.floor(Math.random() * arr.length); }
