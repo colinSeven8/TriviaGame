@@ -9,74 +9,74 @@ $(document).ready(function () {
     let trivia = [
         {
             question: "Which hit song featured the following lyric: 'The love we share seems to go nowhere and I've lost my light.'",
-            answer0: "<div><button onclick='answerSelected()' class='btn correct'>Tainted Love</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH2</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH3</button></div>",
+            answer0: "<div><button class='btn correct'>Tainted Love</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn'>BLAH2</button></div>",
+            answer3: "<div><button class='btn'>BLAH3</button></div>",
             gif: "<div></div>"
         },
         {
             question: "The Magic Number was a 1989 hit for the band, De La Soul. Which album of theirs did it appear on?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn correct'>3 Feet High and Rising</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn'>BLAH1</button></div>",
+            answer3: "<div><button class='btn correct'>3 Feet High and Rising</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which 80's CLash song, when re-released in 1991 went stright to number 1 in the UK?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn correct'>Should I stay or Should I Go?</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn correct'>Should I stay or Should I Go?</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which Duran Duran song opened with the laughter of the keyboardist's girlfriend?",
-            answer0: "<div><button onclick='answerSelected()' class='btn correct'>Hungry Like the Wolf</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn correct'>Hungry Like the Wolf</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn'>BLAH1</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which Pet Shop Boys' song was about the lead singer's Catholic upbringing?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn correct'>It's a Sin</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn correct'>It's a Sin</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Need You Tonight was released by which band?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn correct'>INXS</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn'>BLAH1</button></div>",
+            answer3: "<div><button class='btn correct'>INXS</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which movie featured the song, 'Danger Zone'?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn correct'>Top Gun</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn correct'>Top Gun</button></div>",
+            answer2: "<div><button class='btn'>BLAH1</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which movie featured the song, 'The Heat is On'?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn correct'>Beverly Hills Cop</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn correct'>Beverly Hills Cop</button></div>",
+            answer2: "<div><button class='btn'>BLAH1</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         },
         {
             question: "Which Frankie Goes to Hollywood song was banned in the UK because of it's lyrics?",
-            answer0: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer1: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
-            answer2: "<div><button onclick='answerSelected()' class='btn correct'>Relax</button></div>",
-            answer3: "<div><button onclick='answerSelected()' class='btn'>BLAH1</button></div>",
+            answer0: "<div><button class='btn'>BLAH1</button></div>",
+            answer1: "<div><button class='btn'>BLAH1</button></div>",
+            answer2: "<div><button class='btn correct'>Relax</button></div>",
+            answer3: "<div><button class='btn'>BLAH1</button></div>",
             gif: "<div></div>"
         }
     ];
@@ -115,7 +115,7 @@ $(document).ready(function () {
 
         //Play background music
         startSong = new Audio("assets/audio/whip_it.mp3");
-        //startSong.play();
+        startSong.play();
 
         //Empty the contents
         $('.game-content').empty();
@@ -136,6 +136,8 @@ $(document).ready(function () {
         questionAnswered = false;
         seconds = 30;
         timerRunning = false;
+
+        askQuestions();
     }
 
     function askQuestions() {
@@ -184,12 +186,6 @@ $(document).ready(function () {
             //Increment the index and the 'correct' counter
             currentIndex++;
             correct++;
-
-            if (currentIndex <= trivia.length) {
-                return setTimeout(nextQuestion, trivia[currentIndex - 1].gifTime);
-            } else {
-                endGame();
-            }
         }
         else if () {
             
