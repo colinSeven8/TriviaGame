@@ -142,6 +142,7 @@ function init() {
 
     //Set global values
     gameOver = false;
+    isAlreadyAnswered = false;
     currentIndex = 0;
     correct = 0;
     incorrect = 0;
@@ -161,11 +162,12 @@ function countDown() {
     timerDiv.append(timeRemaining);
 
     if (seconds <= 0) {
+        timerDiv.empty();
+        answersDiv.empty();
         $('.question').empty().append("Time's up! The correct answer is " + trivia[currentIndex].answer0);
         // Gif here....
         isAlreadyAnswered = true;
         clearInterval();
-        timesUp();
     }
 }
 
@@ -181,29 +183,35 @@ function askQuestions() {
         let correctAnswer = getCurrentCorrectAnswer();
         console.log(currentQuestion + " " + correctAnswer);
 
+        // Clear any elements from previous questions
+        $(gifDiv).empty();
+        $(answersDiv).empty();
+        timerDiv.empty();
+
         //Display the timer
         seconds = TIME;
         let timeRemaining = $('<h3><strong>Time Remaining: ' + seconds + ' Seconds</strong></h3>');
-        timerDiv.empty();
         timerDiv.append(timeRemaining);
 
         //Display the current question
-        questionDiv.empty().append('<h3><strong>' + currentQuestion);
+        questionDiv.empty().append('<h2><strong>' + currentQuestion);
 
         //Get the current answers
-        $(answersDiv).empty();
         $(answersDiv).append(trivia[currentIndex].answer0);
         $(answersDiv).append(trivia[currentIndex].answer1);
         $(answersDiv).append(trivia[currentIndex].answer2);
         $(answersDiv).append(trivia[currentIndex].answer3);
 
-        intervalId = setInterval(countDown(), 1000);
+        intervalId = setInterval(countDown, 1000);
 
         // THe user clicked on an answer...
         $(document).on('click', '.btn', function () {
-            console.log("askQuestion() click");
+            console.log("askQuestion() click " + $(this).hasClass('correct'));
             //Make sure it's the correct answer and it hasn't already been answered
-            if ($(this).hasClass('correct') === true && isAlreadyAnswered === false) {
+            if ($(this).hasClass('correct') && isAlreadyAnswered === false) {
+
+                // Clear the answers out of the way
+                $(answersDiv).empty();
 
                 console.log("askQuestion() correct");
                 //Display the message and the gif
@@ -216,6 +224,9 @@ function askQuestions() {
             // User answwered a question incorrectly
             else if ($(this).hasClass('correct') === false && isAlreadyAnswered === false) {
 
+                // Clear the answers out of the way
+                $(answersDiv).empty();
+                
                 console.log("askQuestion() incorrect");
                 //Display the message and the gif
                 $('.question').empty().append("You're way off!");
@@ -234,6 +245,7 @@ function askQuestions() {
 
             // Check if game is over...
             if (currentIndex === trivia.length) gameOver = true;
+            else setTimeout(askQuestions, 5000);
         });
     }
 }

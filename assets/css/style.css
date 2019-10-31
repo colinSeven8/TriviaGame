@@ -21,6 +21,10 @@
       height: 700px;
   }
 
+.question {
+  font-size: 64px;
+}
+
   .amswers {
     width: 100%;
   }
