@@ -4,7 +4,7 @@
 
 // For the area where the game will take place and the seconds allowed
 let card = $("#game-content");
-let countStartNumber = 30;
+var countStartNumber = 30;
 
 // Game objects
 let trivia = [
@@ -19,7 +19,7 @@ let trivia = [
     ],
     correct: "Tainted Love",
     gif:
-      "<iframe src='https://giphy.com/embed/YuJq61a4KGcA8' width='480' height='326' frameBorder='0' class='giphy-embed' allowFullScreen></iframe><p><a href='https://giphy.com/gifs/80s-soft-cell-YuJq61a4KGcA8'>",
+      '<iframe src="https://giphy.com/embed/KQBB3QhDw46Uo" width="480" height="361" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cheezburger-funny-dancing-KQBB3QhDw46Uo"></a></p>',
   },
   {
     question:
@@ -27,7 +27,7 @@ let trivia = [
     answers: ["Oooh", "Eye Know", "Ring Ring Ring", "3 Feet High and Rising"],
     correct: "3 Feet High and Rising",
     gif:
-      '<iframe src="https://giphy.com/embed/55eIKNKr2KiVsRrJFY" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/delasoul-2-chainz-55eIKNKr2KiVsRrJFY">',
+      '<iframe src="https://giphy.com/embed/LPDH1s2GCFOk8" width="480" height="364" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mandc-me-myself-and-i-de-la-soul-LPDH1s2GCFOk8"></a></p>',
   },
   {
     question:
@@ -40,7 +40,7 @@ let trivia = [
     ],
     correct: "Should I Stay or Should I Go?",
     gif:
-      '<iframe src="https://giphy.com/embed/2WohsE4o9BQAg" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/the-clash-theclash-joestrummer-2WohsE4o9BQAg">',
+      '<iframe src="https://giphy.com/embed/8FSMeYKEVf0QUb1PpX" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/applemusic-music-video-rock-8FSMeYKEVf0QUb1PpX"></a></p>',
   },
   {
     question:
@@ -53,7 +53,7 @@ let trivia = [
     ],
     correct: "Hungry Like the Wolf",
     gif:
-      '<iframe src="https://giphy.com/embed/rbXHrvaIg7Zfy" width="480" height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/80s-duran-simon-le-bon-rbXHrvaIg7Zfy">',
+      '<iframe src="https://giphy.com/embed/T9YUCsC6pIxLG" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/80s-duran-simon-le-bon-T9YUCsC6pIxLG"></a></p>',
   },
   {
     question:
@@ -61,14 +61,14 @@ let trivia = [
     answers: ["West End Girls", "Go West", "It's a Sin", "Being Boring"],
     correct: "It's a Sin",
     gif:
-      '<iframe src="https://giphy.com/embed/bYEA1gLDhhrK8" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pet-shop-boys-west-end-girls-bYEA1gLDhhrK8">',
+      '<iframe src="https://giphy.com/embed/Vi0DrJq7l9riLzcPiS" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/songdestages-funny-petshopboys-Vi0DrJq7l9riLzcPiS"></a></p>',
   },
   {
     question: "Need You Tonight was released by which band?",
     answers: ["U2", "Tears for Fears", "Foreigner", "INXS"],
     correct: "INXS",
     gif:
-      '<iframe src="https://giphy.com/embed/6bdjnre6TByWhIdT8m" width="480" height="362" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/inxs-new-sensation-6bdjnre6TByWhIdT8m">',
+      '<iframe src="https://giphy.com/embed/1foX1NDILhYxXiQoes" width="480" height="358" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/inxs-need-you-tonight-1foX1NDILhYxXiQoes"></a></p>',
   },
   {
     question: "Which movie featured the song, 'Danger Zone'?",
@@ -100,15 +100,16 @@ let trivia = [
     answers: ["Watching the Wildlife", "Rage Hard", "Relax", "Born to Run"],
     correct: "Relax",
     gif:
-      '<iframe src="https://giphy.com/embed/l4FGtFECqTZyhH8DS" width="480" height="264" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hornetapp-80s-gay-l4FGtFECqTZyhH8DS">',
+      '<iframe src="https://giphy.com/embed/3ohhwmWYx1au41aQPm" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/georgemichael-george-michael-careless-whisper-3ohhwmWYx1au41aQPm"></a></p>',
   },
 ];
 
 // Our game timer
-let timer;
+var timer;
 
 // The game, itself
 let game = {
+
   trivia: trivia,
   currentQuestion: 0,
   counter: countStartNumber,
@@ -182,7 +183,9 @@ let game = {
     card.append("<br><button id='start-over'>Start Over?</button>");
   },
 
+  // Clear timer and see if the user clicked the right or wrong answer
   clicked: function (e) {
+    console.log("clicked window.timer ", window.timer);
     clearInterval(window.timer);
     if (
       $(e.target).attr("data-name") ===
@@ -194,9 +197,11 @@ let game = {
     }
   },
 
+  // Increment 'incorrect' counter, clear counter, update the DOM and call next question or the final results
   answeredIncorrectly: function () {
     this.incorrect++;
 
+    console.log("incorrect window.timer ", window.timer);
     clearInterval(window.timer);
 
     card.html("<h2>Nope!</h2>");
@@ -247,7 +252,7 @@ $(document).on("click", ".answer-button", function (e) {
 });
 
 $(document).on("click", "#start-btn", function () {
-  $(".row").prepend(
+  $("#inner-container").prepend(
     "<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>"
   );
   game.loadQuestion.bind(game)();
