@@ -3,11 +3,11 @@
 // // Timer homework
 
 // For the area where the game will take place and the seconds allowed
-let card = $("#game-content");
+var card = $("#game-content");
 var countStartNumber = 30;
 
 // Game objects
-let trivia = [
+var trivia = [
   {
     question:
       "Which hit song featured the following lyric: 'The love we share seems to go nowhere and I've lost my light.'",
@@ -38,7 +38,7 @@ let trivia = [
       "Should I stay or Should I Go?",
       "Bank Robber",
     ],
-    correct: "Should I Stay or Should I Go?",
+    correct: "Should I stay or Should I Go?",
     gif:
       '<iframe src="https://giphy.com/embed/8FSMeYKEVf0QUb1PpX" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/applemusic-music-video-rock-8FSMeYKEVf0QUb1PpX"></a></p>',
   },
@@ -108,14 +108,14 @@ let trivia = [
 var timer;
 
 // The game, itself
-let game = {
-
+var game = {
   trivia: trivia,
   currentQuestion: 0,
   counter: countStartNumber,
   correct: 0,
   incorrect: 0,
 
+  // Property called every second in loadQuestion(), decrements with each call and updates the DOM, if it hits 0 it will call timeUp()
   countdown: function () {
     this.counter--;
     $("#counter-number").text(this.counter);
@@ -124,6 +124,7 @@ let game = {
     }
   },
 
+  // Property creates the timer and begins countdown, posts the current question and all answer button
   loadQuestion: function () {
     timer = setInterval(this.countdown.bind(this), 1000);
 
@@ -144,9 +145,11 @@ let game = {
     this.counter = window.countStartNumber;
     $("#counter-number").text(this.counter);
     this.currentQuestion++;
+    console.log("this ", this);
     this.loadQuestion.bind(this)();
   },
 
+  // Property called by countdown() when timer hits 0, clears the timer and updates the DOM, displays the correct answer and gif, if last question end game, else call the next question
   timeUp: function () {
     clearInterval(window.timer);
 
@@ -154,15 +157,15 @@ let game = {
 
     card.html("<h2>Out of Time!</h2>");
     card.append(
-      "<h3>The Correct Answer was: " +
-        trivia[this.currentQuestion].correct
+      "<h3>The Correct Answer was: " + trivia[this.currentQuestion].correct
     );
     card.append(trivia[this.currentQuestion].gif);
 
     if (this.currentQuestion === trivia.length - 1) {
-      setTimeout(this.results, 3 * 1000);
+      setTimeout(this.results, 3000);
     } else {
-      setTimeout(this.nextQuestion, 3 * 1000);
+      console.log("this ", this);
+      setTimeout(this.nextQuestion.bind(this), 3000);
     }
   },
 
@@ -185,11 +188,9 @@ let game = {
 
   // Clear timer and see if the user clicked the right or wrong answer
   clicked: function (e) {
-    console.log("clicked window.timer ", window.timer);
     clearInterval(window.timer);
     if (
-      $(e.target).attr("data-name") ===
-      trivia[this.currentQuestion].correct
+      $(e.target).attr("data-name") === trivia[this.currentQuestion].correct
     ) {
       this.answeredCorrectly();
     } else {
@@ -200,8 +201,6 @@ let game = {
   // Increment 'incorrect' counter, clear counter, update the DOM and call next question or the final results
   answeredIncorrectly: function () {
     this.incorrect++;
-
-    console.log("incorrect window.timer ", window.timer);
     clearInterval(window.timer);
 
     card.html("<h2>Nope!</h2>");
@@ -213,9 +212,9 @@ let game = {
     card.append(trivia[this.currentQuestion].gif);
 
     if (this.currentQuestion === trivia.length - 1) {
-      setTimeout(this.results.bind(this), 3 * 1000);
+      setTimeout(this.results.bind(this), 3000);
     } else {
-      setTimeout(this.nextQuestion.bind(this), 3 * 1000);
+      setTimeout(this.nextQuestion.bind(this), 3000);
     }
   },
 
@@ -228,9 +227,9 @@ let game = {
     card.append(trivia[this.currentQuestion].gif);
 
     if (this.currentQuestion === trivia.length - 1) {
-      setTimeout(this.results.bind(this), 3 * 1000);
+      setTimeout(this.results.bind(this), 3000);
     } else {
-      setTimeout(this.nextQuestion.bind(this), 3 * 1000);
+      setTimeout(this.nextQuestion.bind(this), 3000);
     }
   },
 
@@ -251,6 +250,7 @@ $(document).on("click", ".answer-button", function (e) {
   game.clicked.bind(game, e)();
 });
 
+// Start the game
 $(document).on("click", "#start-btn", function () {
   $("#inner-container").prepend(
     "<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>"
